@@ -9,7 +9,7 @@ constant: GCP_PROJECT {
 }
 
 constant: REPORTING_DATASET {
-  value: "arauco_sap_qa_REPORTING"
+  value: "arauco_sap_qa_REPORTING_v5dot0"
   export: override_required
 }
 
