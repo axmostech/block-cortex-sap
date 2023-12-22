@@ -1,10 +1,10 @@
 constant: CONNECTION_NAME {
-  value: "poc-cortex-aurora"
+  value: "poc-looker"
   export: override_required
 }
 
 constant: GCP_PROJECT {
-  value: "poc-sap-cortex-400818"
+  value: "servidores--prod-svc-tt1f"
   export: override_required
 }
 
@@ -14,6 +14,6 @@ constant: REPORTING_DATASET {
 }
 
 constant: CLIENT {
-  value: "400"
+  value: "500"
   export: override_required
 }
