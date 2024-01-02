@@ -1,19 +1,19 @@
 constant: CONNECTION_NAME {
-  value: "bigquery-sap-cortex-arauco"
+  value: "poc-looker"
   export: override_required
 }
 
 constant: GCP_PROJECT {
-  value: "gl-tra-cortex-bigquery-poc"
+  value: "servidores--prod-svc-tt1f"
   export: override_required
 }
 
 constant: REPORTING_DATASET {
-  value: "arauco_sap_qa_REPORTING_v5dot0"
+  value: "REPORTING"
   export: override_required
 }
 
 constant: CLIENT {
-  value: "400"
+  value: "500"
   export: override_required
 }
