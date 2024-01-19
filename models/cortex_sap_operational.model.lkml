@@ -88,6 +88,15 @@ explore: sales_orders {
           ${materials_md.language_spras}=${language_map.language_key};;
   }
 
+  join: sql_cod_material {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${sales_orders.material_number_matnr}=${materials_md.material_number_matnr}
+    and ${sales_orders.client_mandt}=${materials_md.client_mandt} and
+    ${materials_md.language_spras}=${language_map.language_key};;
+
+  }
+
   join: customers_md {
     type: left_outer
     relationship: one_to_many
