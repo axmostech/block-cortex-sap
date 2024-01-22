@@ -253,7 +253,7 @@ explore: inventory_metrics_overview {
   join: inventory_by_plant {
     type: left_outer
     relationship: many_to_one
-    fields: [inventory_by_plant.stock_characteristic]
+    fields: [inventory_by_plant.stock_characteristic, inventory_by_plant.material_number_matnr]
     sql_on: ${inventory_by_plant.client_mandt} = ${inventory_metrics_overview.client_mandt}
       and ${inventory_by_plant.company_code_bukrs} = ${inventory_metrics_overview.company_code_bukrs}
     ;;
@@ -279,12 +279,6 @@ explore: inventory_by_plant {
     relationship: many_to_one
   }
 
-  join: sql_cod_material {
-    fields: []
-    type: left_outer
-    sql_on: ${inventory_by_plant.material_number_matnr} = ${sql_cod_material.cod_material} ;;
-    relationship:one_to_one
-  }
 
 }
 
