@@ -278,6 +278,14 @@ explore: inventory_by_plant {
     sql_on: ${inventory_by_plant.language_spras} = ${language_map.language_key} ;;
     relationship: many_to_one
   }
+
+  join: sql_cod_material {
+    fields: []
+    type: left_outer
+    sql_on: ${inventory_by_plant.material_number_matnr} = ${sql_cod_material.cod_material} ;;
+    relationship:one_to_one
+  }
+
 }
 
 ################################################ End of Supply Chain #################################################
