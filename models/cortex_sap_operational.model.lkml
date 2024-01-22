@@ -253,7 +253,7 @@ explore: inventory_metrics_overview {
   join: inventory_by_plant {
     type: left_outer
     relationship: many_to_one
-    fields: [inventory_by_plant.stock_characteristic, inventory_by_plant.material_number_matnr]
+    fields: [inventory_by_plant.stock_characteristic]
     sql_on: ${inventory_by_plant.client_mandt} = ${inventory_metrics_overview.client_mandt}
       and ${inventory_by_plant.company_code_bukrs} = ${inventory_metrics_overview.company_code_bukrs}
     ;;
@@ -278,8 +278,6 @@ explore: inventory_by_plant {
     sql_on: ${inventory_by_plant.language_spras} = ${language_map.language_key} ;;
     relationship: many_to_one
   }
-
-
 }
 
 ################################################ End of Supply Chain #################################################
