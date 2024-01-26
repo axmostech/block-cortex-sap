@@ -224,7 +224,6 @@ view: inventory_by_plant {
 
   dimension: material_number_matnr {
     type: string
-    label: "Material Number"
     sql: ${TABLE}.MaterialNumber_MATNR ;;
   }
 
