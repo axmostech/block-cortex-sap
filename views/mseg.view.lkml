@@ -12,17 +12,18 @@ view: mseg {
          mseg.erfme AS unidad_entrada,
          mkpf.cpudt AS fecha,
          mseg.aufnr AS orden,
-         mseg.ebeln AS pedido
+         mseg.ebeln AS pedido,
+         mseg.mandt as mandt
       FROM
         `poc-sap-cortex-400818.sap_cortex.mseg` as mseg
-      
-      
+
+
         LEFT JOIN
-      
-      
+
+
         `poc-sap-cortex-400818.sap_cortex.mkpf` as mkpf  ON  mseg.mandt   = mkpf.mandt and mseg.mblnr = mkpf.mblnr and mseg.mjahr = mkpf.mjahr
-      
-      
+
+
           JOIN `poc-sap-cortex-400818.sap_cortex.makt` as makt ON mseg.matnr = makt.matnr ;;
   }
 
@@ -87,19 +88,25 @@ view: mseg {
     sql: ${TABLE}.pedido ;;
   }
 
+  dimension: mandt {
+    type: string
+    sql: ${TABLE}.mandt ;;
+  }
+
   set: detail {
     fields: [
         planta,
-	almacen,
-	movimiento,
-	material,
-	descripcion,
-	lote,
-	cantidad,
-	unidad_entrada,
-	fecha,
-	orden,
-	pedido
+  almacen,
+  movimiento,
+  material,
+  descripcion,
+  lote,
+  cantidad,
+  unidad_entrada,
+  fecha,
+  orden,
+  pedido,
+  mandt
     ]
   }
 }

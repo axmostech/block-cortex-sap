@@ -47,6 +47,12 @@ sql_always_where: ${Client_ID} = "@{CLIENT}" ;;
   }
 }
 
+
+explore: mseg {
+  sql_always_where: ${mandt} = '{{ _user_attributes['client_id_rep'] }}';;
+}
+
+
 explore: sales_orders {
 
   join: language_map {

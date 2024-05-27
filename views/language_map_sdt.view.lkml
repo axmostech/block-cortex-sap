@@ -25,6 +25,8 @@
 
 view: language_map_sdt {
 
+
+
   derived_table: {
     sql: select LanguageKey_SPRAS as Language_SPRAS
                 ,TwoCharacterSapLanguageCode_LAISO
