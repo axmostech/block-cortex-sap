@@ -53,6 +53,11 @@ explore: mseg {
 }
 
 
+explore: mseg_cmv {
+
+}
+
+
 explore: sales_orders {
 
   join: language_map {

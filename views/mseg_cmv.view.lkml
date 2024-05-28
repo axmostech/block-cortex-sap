@@ -319,8 +319,8 @@ dimension: orden {
 
 measure: count {
   type: count
-  sql: ${TABLE}.* ;;
-}
+  drill_fields: [detail*]
+  }
 
 dimension_group: fecha_Mseg {
   type: time
@@ -337,4 +337,20 @@ dimension_group: fecha_Mseg {
   sql: ${TABLE}.fecha ;;
   hidden: no
 }
+
+set: detail {
+  fields: [
+    tipo,
+    planta,
+    almacen,
+    material,
+    descripcion,
+    lote,
+    cantidad,
+    unidad,
+    fecha,
+    pedido,
+    orden
+    ]
+  }
 }
