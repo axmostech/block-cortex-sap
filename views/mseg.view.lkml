@@ -93,6 +93,22 @@ view: mseg {
     sql: ${TABLE}.mandt ;;
   }
 
+  dimension_group: fecha_Mseg {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.fecha ;;
+    hidden: no
+  }
+
   set: detail {
     fields: [
         planta,
