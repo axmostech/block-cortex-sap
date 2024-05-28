@@ -30,6 +30,7 @@ view: mseg_cmv {
     WHERE
       mseg.LGORT = '1010'
       AND mseg.BWART IN ('101', '102')
+      AND mseg.MANDT = '400'
   ),
 
     consumo AS (
@@ -61,7 +62,7 @@ view: mseg_cmv {
     WHERE
     (mseg.LGORT = '1015' AND mseg.BWART IN ('261', '262'))
     OR (mseg.LGORT = '1050' AND mseg.BWART IN ('261', '262'))
-    ),
+    ) AND mseg.MANDT = '400',
 
     produccion AS (
     SELECT
@@ -92,7 +93,7 @@ view: mseg_cmv {
     WHERE
     (mseg.LGORT = '1017' AND mseg.BWART IN ('131', '132'))
     OR (mseg.LGORT = '1016' AND mseg.BWART IN ('131', '132', '531', '532'))
-    ),
+    )  AND mseg.MANDT = '400',
 
     perdidas AS (
     SELECT
@@ -121,7 +122,7 @@ view: mseg_cmv {
     ON
     mseg.MATNR = makt.MATNR
     WHERE
-    mseg.BWART = '551'
+    mseg.BWART = '551'  AND mseg.MANDT = '400'
     ),
 
     entregas AS (
@@ -151,7 +152,7 @@ view: mseg_cmv {
     ON
     mseg.MATNR = makt.MATNR
     WHERE
-    mseg.BWART IN ('601', '602', '643', '647') -- Ajustar según el movimiento de entregas a clientes
+    mseg.BWART IN ('601', '602', '643', '647')  AND mseg.MANDT = '400' -- Ajustar según el movimiento de entregas a clientes
     )
 
     SELECT
