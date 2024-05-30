@@ -31,6 +31,10 @@ view: mseg {
     type: count
     drill_fields: [detail*]
   }
+  measure: Suma_cantidad {
+    type: sum
+    sql: ${TABLE}.cantidad;;
+  }
 
   dimension: planta {
     type: string
