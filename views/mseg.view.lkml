@@ -13,7 +13,7 @@ view: mseg {
          mkpf.cpudt AS fecha,
          mseg.aufnr AS orden,
          mseg.ebeln AS pedido,
-         mseg.mandt as mandt
+         mseg.mandt as mandt,
          mseg.mblnr as Doc_Mat
       FROM
         `poc-sap-cortex-400818.sap_cortex.mseg` as mseg
