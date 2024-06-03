@@ -14,6 +14,7 @@ view: mseg {
          mseg.aufnr AS orden,
          mseg.ebeln AS pedido,
          mseg.mandt as mandt
+         mseg.mblnr as Doc_Mat
       FROM
         `poc-sap-cortex-400818.sap_cortex.mseg` as mseg
 
@@ -39,6 +40,11 @@ view: mseg {
   dimension: planta {
     type: string
     sql: ${TABLE}.planta ;;
+  }
+
+  dimension: Doc_Mat {
+    type: string
+    sql: ${TABLE}.Doc_Mat ;;
   }
 
   dimension: almacen {
