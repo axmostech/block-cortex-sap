@@ -1,31 +1,33 @@
 
 view: mseg {
   derived_table: {
-    sql: SELECT
-         mseg.werks AS planta,
-         mseg.lgort AS almacen,
-         mseg.bwart AS movimiento,
-         mseg.matnr AS material,
-         makt.maktx AS descripcion,
-         mseg.charg AS lote,
-         mseg.erfmg AS cantidad,
-         mseg.erfme AS unidad_entrada,
-         mkpf.cpudt AS fecha,
-         mseg.aufnr AS orden,
-         mseg.ebeln AS pedido,
-         mseg.mandt as mandt,
-         mseg.mblnr as Doc_Mat
-      FROM
-        `poc-sap-cortex-400818.sap_cortex.mseg` as mseg
-
-
+    sql:SELECT
+        mseg.werks AS planta,
+        mseg.lgort AS almacen,
+        mseg.bwart AS movimiento,
+        mseg.matnr AS material,
+        makt.maktx AS descripcion,
+        mseg.charg AS lote,
+        mseg.erfmg AS cantidad,
+        mseg.erfme AS unidad_entrada,
+        mkpf.cpudt AS fecha,
+        mseg.aufnr AS orden,
+        mseg.ebeln AS pedido,
+        mseg.mandt AS mandt,
+        mseg.mblnr AS Doc_Mat
+    FROM
+        poc-sap-cortex-400818.sap_cortex.mseg AS mseg
         LEFT JOIN
-
-
-        `poc-sap-cortex-400818.sap_cortex.mkpf` as mkpf  ON  mseg.mandt   = mkpf.mandt and mseg.mblnr = mkpf.mblnr and mseg.mjahr = mkpf.mjahr
-
-
-          JOIN `poc-sap-cortex-400818.sap_cortex.makt` as makt ON mseg.matnr = makt.matnr ;;
+            poc-sap-cortex-400818.sap_cortex.mkpf AS mkpf
+        ON
+            mseg.mandt = mkpf.mandt
+            AND mseg.mblnr = mkpf.mblnr
+            AND mseg.mjahr = mkpf.mjahr
+        left JOIN
+            poc-sap-cortex-400818.sap_cortex.makt AS makt
+        ON
+            mseg.matnr = makt.matnr and makt.spras ='E'
+;;
   }
 
   measure: count {
