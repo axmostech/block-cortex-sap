@@ -1,7 +1,7 @@
 
 view: mseg {
   derived_table: {
-    sql:SELECT
+    sql:    SELECT
         mseg.werks AS planta,
         mseg.lgort AS almacen,
         mseg.bwart AS movimiento,
