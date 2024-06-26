@@ -77,11 +77,6 @@ view: mseg {
     sql: ${TABLE}.cantidad ;;
   }
 
-  measure: cantidad_total {
-    type: number
-    sql: ${TABLE}.cantidad ;;
-  }
-
   dimension: unidad_entrada {
     type: string
     sql: ${TABLE}.unidad_entrada ;;
